@@ -30,6 +30,12 @@ Gradebook → **Import** → 选择输出的 `_已填.csv` → 核对预览变�
 
 ## 作为 AI 助手技能安装
 
-- **WorkBuddy**：把整个目录放入 `~/.workbuddy/skills/canvas-gradebook-csv/`
-- **Claude Code**：把整个目录放入 `~/.claude/skills/canvas-gradebook-csv/`（`SKILL.md` 即 Anthropic Agent Skills 格式，原生兼容）
-- **Codex CLI**：无技能自动加载机制，把本 README 的用法段落复制进项目的 `AGENTS.md`，或直接手动运行上述命令
+`SKILL.md` 遵循开放的 Agent Skills 标准，以下工具均原生支持，放入对应目录即自动注册（不出现就重启一次）：
+
+| 工具 | 目录 | 显式调用 |
+|---|---|---|
+| WorkBuddy | `~/.workbuddy/skills/canvas-gradebook-csv/` | — |
+| Claude Code | `~/.claude/skills/canvas-gradebook-csv/` | `/canvas-gradebook-csv` |
+| Codex CLI / IDE / ChatGPT 桌面端 | `~/.agents/skills/canvas-gradebook-csv/`（或 `~/.codex/skills/`） | `$canvas-gradebook-csv` |
+
+Codex 会按 description 隐式匹配，也可在提示词里用 `$canvas-gradebook-csv` 显式调用；可用 `agents/openai.yaml` 声明展示信息（可选）。
